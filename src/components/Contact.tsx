@@ -8,22 +8,22 @@ import Icon from "@/components/ui/icon";
 const Contact = () => {
   const contactInfo = [
     {
-      icon: "Mail",
-      title: "Email",
-      value: "maria@example.com",
-      link: "mailto:maria@example.com",
+      icon: "Building",
+      title: "Головной офис",
+      value: "г. Новосибирск, ул. Промышленная, 1",
+      link: "#",
     },
     {
       icon: "Phone",
       title: "Телефон",
-      value: "+7 (999) 123-45-67",
-      link: "tel:+79991234567",
+      value: "+7 (383) 123-45-67",
+      link: "tel:+73831234567",
     },
     {
-      icon: "MapPin",
-      title: "Местоположение",
-      value: "Москва, Россия",
-      link: "#",
+      icon: "Mail",
+      title: "Email",
+      value: "info@maria-ra.ru",
+      link: "mailto:info@maria-ra.ru",
     },
     {
       icon: "Clock",
@@ -33,51 +33,65 @@ const Contact = () => {
     },
   ];
 
-  const socialLinks = [
-    { icon: "Instagram", link: "#", label: "Instagram" },
-    { icon: "Linkedin", link: "#", label: "LinkedIn" },
-    { icon: "MessageCircle", link: "#", label: "Telegram" },
-    { icon: "Mail", link: "#", label: "Email" },
+  const businessContacts = [
+    {
+      icon: "Handshake",
+      title: "Франшиза",
+      value: "franchise@maria-ra.ru",
+      description: "Возможности партнерства",
+    },
+    {
+      icon: "Briefcase",
+      title: "Поставщикам",
+      value: "suppliers@maria-ra.ru",
+      description: "Сотрудничество с поставщиками",
+    },
+    {
+      icon: "Users",
+      title: "HR-отдел",
+      value: "hr@maria-ra.ru",
+      description: "Вакансии и карьера",
+    },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Контакты</h2>
+          <h2 className="text-4xl font-bold text-maria-dark mb-4">Контакты</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Готова обсудить ваш проект и найти наилучшее решение. Свяжитесь со
-            мной удобным способом
+            Свяжитесь с нами для решения любых вопросов или предложений о
+            сотрудничестве
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 mb-12">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Свяжитесь со мной
+              <h3 className="text-2xl font-bold text-maria-dark mb-6">
+                Основные контакты
               </h3>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid gap-4">
                 {contactInfo.map((info, index) => (
                   <Card
                     key={index}
                     className="p-4 hover:shadow-md transition-shadow"
                   >
                     <CardContent className="flex items-start gap-3 p-0">
-                      <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 bg-maria-red/10 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Icon
                           name={info.icon as any}
                           size={20}
-                          className="text-purple-600"
+                          className="text-maria-red"
                         />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-maria-dark">
                           {info.title}
                         </p>
                         <a
                           href={info.link}
-                          className="text-gray-600 hover:text-purple-600 transition-colors"
+                          className="text-gray-600 hover:text-maria-red transition-colors"
                         >
                           {info.value}
                         </a>
@@ -89,19 +103,35 @@ const Contact = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                Социальные сети
+              <h4 className="text-lg font-semibold text-maria-dark mb-4">
+                Деловые контакты
               </h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
-                  <a
+              <div className="space-y-3">
+                {businessContacts.map((contact, index) => (
+                  <div
                     key={index}
-                    href={social.link}
-                    className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors group"
-                    aria-label={social.label}
+                    className="flex items-center gap-3 p-3 bg-white rounded-lg"
                   >
-                    <Icon name={social.icon as any} size={20} />
-                  </a>
+                    <Icon
+                      name={contact.icon as any}
+                      size={20}
+                      className="text-maria-red"
+                    />
+                    <div>
+                      <p className="font-medium text-maria-dark">
+                        {contact.title}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {contact.description}
+                      </p>
+                      <a
+                        href={`mailto:${contact.value}`}
+                        className="text-sm text-maria-red hover:underline"
+                      >
+                        {contact.value}
+                      </a>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -110,11 +140,11 @@ const Contact = () => {
           <Card className="p-6">
             <CardContent className="space-y-6 p-0">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  Отправить сообщение
+                <h3 className="text-2xl font-bold text-maria-dark mb-2">
+                  Обратная связь
                 </h3>
                 <p className="text-gray-600">
-                  Заполните форму, и я свяжусь с вами в ближайшее время
+                  Напишите нам, и мы обязательно ответим на ваш запрос
                 </p>
               </div>
 
@@ -138,7 +168,7 @@ const Contact = () => {
                   <label className="text-sm font-medium text-gray-700">
                     Тема
                   </label>
-                  <Input placeholder="Тема сообщения" />
+                  <Input placeholder="Тема обращения" />
                 </div>
 
                 <div className="space-y-2">
@@ -146,19 +176,19 @@ const Contact = () => {
                     Сообщение
                   </label>
                   <Textarea
-                    placeholder="Расскажите о вашем проекте..."
+                    placeholder="Опишите ваш вопрос или предложение..."
                     className="min-h-32"
                   />
                 </div>
 
-                <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+                <Button className="w-full bg-maria-red hover:bg-maria-dark-red text-white">
                   <Icon name="Send" size={20} className="mr-2" />
                   Отправить сообщение
                 </Button>
               </form>
 
               <div className="text-center text-sm text-gray-500">
-                Отвечу в течение 24 часов
+                Ответим в течение 1 рабочего дня
               </div>
             </CardContent>
           </Card>

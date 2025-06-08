@@ -2,7 +2,8 @@ import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Services from "@/components/Services";
+import Stores from "@/components/Stores";
+import Technology from "@/components/Technology";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -12,7 +13,8 @@ const Index = () => {
       <Header />
       <Hero />
       <About />
-      <Services />
+      <Stores />
+      <Technology />
       <Contact />
       <Footer />
     </div>
